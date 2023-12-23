@@ -5,8 +5,10 @@
 2. Были созданы 2 ВМ bastion и someinternalhost с указанными в ДЗ ресурсами
 
 IPs:
-bastion = 178.154.206.227 (external IP), 10.128.0.25 (internal IP)
-someinternalhost = 10.128.0.34 (internal IP)
+
+bastion_IP = 178.154.206.227
+someinternalhost_IP = 10.128.0.34
+
 user = kita
 
 3. Проверяем доступ до ВМ bastion через SSH:
@@ -134,3 +136,5 @@ Last login: Sat Dec 23 12:11:31 2023 from 95.72.106.126
 kita@bastion:~$
 ```
 11. Дополнительное задание: не охото разбираться=D
+
+[тык](https://178.154.206.227/)
