@@ -1,20 +1,25 @@
-### Описание ДЗ №3 Otus DevOps
-
-В рамках выполнения ДЗ были выполнены следующие этапы:
-1. Был создан аккаунт Yandex Cloud
-2. Были созданы 2 ВМ bastion и someinternalhost с указанными в ДЗ ресурсами
+### Homework №3 Otus DevOps
 
 IPs:
 
 bastion_IP = 178.154.206.227
 someinternalhost_IP = 10.128.0.34
 
-user = kita
+### Homework №4 Otus DevOps
 
-3. Проверяем доступ до ВМ bastion через SSH:
-4. Сделаны настройки, позволяющие подключаться к someinternalhost с bastion хоста. Проверим:
-5. Установлен сервер pritunl на хост bastion при помощи скрипта setupvpn.sh. В скрипте исправлены ошибки
-6. Настроен сервер pritunl через web интерфейс
-7. Сформирован файл конфигурации для openvpn (прилагаю)
-8. Организовано VPN подключение с локального хоста к bastion хосту
-9. Проверена возможность подключения по ssh к хосту someinternalhost через VPN
+Stand credentials:
+
+testapp_IP = 84.201.129.110
+testapp_port = 9292
+
+CLI command for deploy instance:
+```console
+yc compute instance create \
+  --name reddit-app \
+  --hostname reddit-app \
+  --memory=4 \
+  --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts,size=10GB \
+  --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
+  --metadata-from-file user-data=./init.yml \
+  --metadata serial-port-enable=1
+```
