@@ -17,7 +17,7 @@ Bash scripts for direct deploy. All scripts are executables:
 - install_mongodb.sh
 - deploy.sh
 
-For init deploy in this stand uses cloud-init config file ___init.yml__
+For init deploy in this stand uses cloud-init config file __init.yml__
 
 CLI command for deploy instance with cloud-init:
 ```console
