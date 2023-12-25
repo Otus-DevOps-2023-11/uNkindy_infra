@@ -1,0 +1,8 @@
+Host bastion
+    HostName 178.154.206.227
+    User kita
+
+Host someinternalhost
+    HostName 10.128.0.34
+    User kita
+    ProxyJump bastion
