@@ -12,7 +12,14 @@ Stand credentials:
 testapp_IP = 84.201.129.110
 testapp_port = 9292
 
-CLI command for deploy instance:
+Bash scripts for direct deploy. All scripts are executables:
+- install_ruby.sh
+- install_mongodb.sh
+- deploy.sh
+
+For init deploy in this stand uses cloud-init config file ___init.yml__
+
+CLI command for deploy instance with cloud-init:
 ```console
 yc compute instance create \
   --name reddit-app \
