@@ -35,4 +35,4 @@ yc compute instance create \
 
 Deploy monolith app in Yandex Cloud with packer image.
 
-[For checkout:](http://158.160.58.72:9292/)
+[For checkout: http://158.160.58.72:9292/](http://158.160.58.72:9292/)
