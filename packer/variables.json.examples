@@ -1,0 +1,6 @@
+{
+    "service_account_key_file": "<Path to account key file>",
+    "folder_id": "<Folder ID>>",
+    "source_image_family": "Source Image Family",
+    "image_family": "Image name after build"
+}
