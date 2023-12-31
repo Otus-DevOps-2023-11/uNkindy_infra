@@ -1,11 +1,11 @@
-### Homework №3 Otus DevOps
+### Homework №3 Otus DevOps (Bastion Hosts)
 
 IPs:
 
 bastion_IP = 178.154.206.227
 someinternalhost_IP = 10.128.0.34
 
-### Homework №4 Otus DevOps
+### Homework №4 Otus DevOps (Yandex Cloud)
 
 Stand credentials:
 
@@ -30,3 +30,9 @@ yc compute instance create \
   --metadata-from-file user-data=./init.yml \
   --metadata serial-port-enable=1
 ```
+
+### Homework №5 Otus DevOps (Packer)
+
+Deploy monolith app in Yandex Cloud with packer image.
+
+[For checkout: http://158.160.58.72:9292/](http://158.160.58.72:9292/)
