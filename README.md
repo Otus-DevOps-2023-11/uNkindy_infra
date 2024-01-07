@@ -36,3 +36,11 @@ yc compute instance create \
 Deploy monolith app in Yandex Cloud with packer image.
 
 [For checkout: http://158.160.58.72:9292/](http://158.160.58.72:9292/)
+
+### Homework №6 Otus DevOps (Terraform-1)
+
+Deploy monolith app in Yandex Cloud with Terraform infrastructure code.
+
+[balancer](http://158.160.131.102:9292/)
+[first app](http://158.160.111.172:9292/)
+[second app](http://158.160.114.41:9292/)

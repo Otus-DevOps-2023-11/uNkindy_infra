@@ -1,0 +1,9 @@
+cloud_id                 = "b1gt..."
+folder_id                = "b1g7..."
+image_id                 = "fd8m..."
+subnet_id                = "e9bv..."
+service_account_key_file = "key.json"
+public_key_path          = "id_rsa.pub"
+private_key_path         = "id_rsa"
+
+lb_image_id              = "fd8b..."
