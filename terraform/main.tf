@@ -1,3 +1,4 @@
+/*
 terraform {
   required_providers {
     yandex = {
@@ -5,7 +6,7 @@ terraform {
     }
   }
 }
-
+*/
 provider "yandex" {
   zone                     = var.zone
   service_account_key_file = var.service_account_key_file
