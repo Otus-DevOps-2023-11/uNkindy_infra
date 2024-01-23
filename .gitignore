@@ -5,3 +5,13 @@ terraform/.terraform.tfstate.lock.info
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
 terraform/terraform.tfvars
+terraform/prod/.terraform
+terraform/prod/.terraform.lock.hcl
+terraform/stage/.terraform
+terraform/stage/.terraform.lock.hcl
+terraform/stage/terraform.tfvars
+terraform/stage/terraform.tfstate
+terraform/stage/terraform.tfstate.backup
+terraform/prod/terraform.tfvars
+terraform/prod/terraform.tfstate
+terraform/prod/terraform.tfstate.backup
