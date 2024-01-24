@@ -3,7 +3,9 @@
 ###	Install Mongo DB
 
 echo "Install MongoDB..."
-apt-get install mongodb -y
+
+sleep 10
+sudo apt-get install mongodb -y
 
 sleep 10
 
