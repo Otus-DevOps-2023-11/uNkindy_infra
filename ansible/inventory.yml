@@ -1,16 +1,11 @@
 ---
 all:
+  vars:
+    db_ip: 158.160.99.76
+
   hosts:
     app:
-      ansible_host: 158.160.111.251
+      ansible_host: 158.160.42.96
 
     db:
-      ansible_host: 158.160.62.31
-
-apps:
-  hosts:
-    app:
-
-dbs:
-  hosts:
-    db:
+      ansible_host: 158.160.99.76

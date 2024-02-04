@@ -1,0 +1,79 @@
+---
+- name: Configure hosts & deploy application
+  hosts: db
+  become: yes
+  vars:
+    mongo_bind_ip: 0.0.0.0
+  tasks:
+    - name: Change mongo config file
+      template:
+        src: templates/mongodb.conf.j2
+        dest: /etc/mongodb.conf
+        mode: 0644
+      tags: db-tag
+      notify: restart mongodb
+
+- name: Copy puma.servicee
+  hosts: app
+  become: yes
+  vars:
+    db_host: "{{ db_ip }}"
+  tasks:
+    - name: Add unit file for Puma
+      copy:
+        src: files/reddit.service
+        dest: /etc/systemd/system/reddit.service
+      tags: app-tag
+      notify: start reddit.service
+
+    - name: Add config for DB connection
+      template:
+        src: templates/db_config.j2
+        dest: /home/ubuntu/db_config
+        mode: 0644
+      tags: app-tag
+
+    - name: Install Git
+      apt:
+        name: git
+        state: latest
+      tags: deploy-app
+
+    - name: Fetch the latest version of application code
+      git:
+        repo: 'https://github.com/express42/reddit.git'
+        dest: /home/ubuntu/reddit
+        version: monolith
+      tags: deploy-app
+      notify: restart reddit.service
+
+    - name: Bundler install
+      bundler:
+        state: present
+        chdir: /home/ubuntu/reddit
+      tags: deploy-app
+
+    - name: ENV
+      shell: sudo systemctl set-environment DATABASE_URL="{{ db_ip }}"
+      tags: deploy-app
+      notify: restart reddit.service
+
+  handlers:
+    - name: restart mongodb
+      become: true
+      service:
+        name: mongodb
+        state: restarted
+
+    - name: start reddit.service
+      become: true
+      service:
+        name: reddit.service
+        state: started
+        enabled: yes
+
+    - name: restart reddit.service
+      become: true
+      service:
+        name: reddit.service
+        state: restarted
