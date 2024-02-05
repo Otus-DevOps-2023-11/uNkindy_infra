@@ -1,5 +1,4 @@
 ---
----
 - name: Install soft for db
   hosts: all
   become: true
