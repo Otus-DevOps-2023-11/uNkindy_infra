@@ -15,7 +15,7 @@
     "provisioners": [
         {
             "type": "ansible",
-            "playbook_file": "/home/kita/Documents/Otus_DevOps/Otus_DevOps_Unit_2/uNkindy_infra/ansible/packer_app.yml",
+            "playbook_file": "ansible/packer_app.yml",
             "extra_arguments": [
                 "--ssh-extra-args",
                 "-o HostKeyAlgorithms=+ssh-rsa"
