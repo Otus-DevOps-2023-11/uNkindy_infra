@@ -1,11 +1,11 @@
-# terraform {
-#   required_providers {
-#     yandex = {
-#       source = "yandex-cloud/yandex"
-#     }
-#   }
-#   required_version = ">= 0.13"
-# }
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+    }
+  }
+  required_version = ">= 0.13"
+}
 
 resource "yandex_compute_instance" "db" {
   name = "reddit-db"
@@ -18,13 +18,13 @@ resource "yandex_compute_instance" "db" {
     memory = 2
   }
 
-  connection {
-    type  = "ssh"
-    host  = self.network_interface.0.nat_ip_address
-    user  = "ubuntu"
-    agent = false
-    private_key = file(var.private_key_path)
-  }
+  # connection {
+  #   type  = "ssh"
+  #   host  = self.network_interface.0.nat_ip_address
+  #   user  = "ubuntu"
+  #   agent = false
+  #   private_key = file(var.private_key_path)
+  # }
 
   boot_disk {
     initialize_params {
@@ -40,12 +40,12 @@ resource "yandex_compute_instance" "db" {
   metadata = {
   ssh-keys = "ubuntu:${file(var.public_key_path)}"
   }
-  provisioner "file" {
-    source      = "/home/kita/Documents/Otus_DevOps/Otus_DevOps_Unit_2/uNkindy_infra/terraform/modules/db/files/mongodb.conf"
-    destination = "/tmp/mongodb.conf"
-  }
-  provisioner "remote-exec" {
-    script = "/home/kita/Documents/Otus_DevOps/Otus_DevOps_Unit_2/uNkindy_infra/terraform/modules/db/files/db_bind.sh"
-  }
+  # provisioner "file" {
+  #   source      = "/home/kita/Documents/Otus_DevOps/Otus_DevOps_Unit_2/uNkindy_infra/terraform/modules/db/files/mongodb.conf"
+  #   destination = "/tmp/mongodb.conf"
+  # }
+  # provisioner "remote-exec" {
+  #   script = "/home/kita/Documents/Otus_DevOps/Otus_DevOps_Unit_2/uNkindy_infra/terraform/modules/db/files/db_bind.sh"
+  # }
 
 }

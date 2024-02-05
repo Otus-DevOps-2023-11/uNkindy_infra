@@ -1,11 +1,11 @@
-# terraform {
-#   required_providers {
-#     yandex = {
-#       source = "yandex-cloud/yandex"
-#     }
-#   }
-#   required_version = ">= 0.13"
-# }
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+    }
+  }
+  required_version = ">= 0.13"
+}
 
 resource "yandex_compute_instance" "app" {
 
@@ -20,13 +20,13 @@ name = "reddit-app"
     memory = 2
   }
 
-    connection {
-    type  = "ssh"
-    host  = self.network_interface.0.nat_ip_address
-    user  = "ubuntu"
-    agent = false
-    private_key = file(var.private_key_path)
-  }
+  #   connection {
+  #   type  = "ssh"
+  #   host  = self.network_interface.0.nat_ip_address
+  #   user  = "ubuntu"
+  #   agent = false
+  #   private_key = file(var.private_key_path)
+  # }
 
   metadata = {
     ssh-keys = "ubuntu:${file(var.public_key_path)}"
@@ -43,18 +43,18 @@ name = "reddit-app"
     nat       = true
   }
 
-  provisioner "remote-exec" {
-    inline = [
-      "sudo systemctl set-environment DATABASE_URL=${var.database_url}"
-    ]
-  }
+  # provisioner "remote-exec" {
+  #   inline = [
+  #     "sudo systemctl set-environment DATABASE_URL=${var.database_url}"
+  #   ]
+  # }
 
-    provisioner "file" {
-    source      = "/home/kita/Documents/Otus_DevOps/Otus_DevOps_Unit_2/uNkindy_infra/terraform/modules/app/files/reddit.service"
-    destination = "/tmp/reddit.service"
-  }
+  #   provisioner "file" {
+  #   source      = "/home/kita/Documents/Otus_DevOps/Otus_DevOps_Unit_2/uNkindy_infra/terraform/modules/app/files/reddit.service"
+  #   destination = "/tmp/reddit.service"
+  # }
 
-    provisioner "remote-exec" {
-    script = "/home/kita/Documents/Otus_DevOps/Otus_DevOps_Unit_2/uNkindy_infra/terraform/modules/app/files/deploy.sh"
-  }
+  #   provisioner "remote-exec" {
+  #   script = "/home/kita/Documents/Otus_DevOps/Otus_DevOps_Unit_2/uNkindy_infra/terraform/modules/app/files/deploy.sh"
+  # }
 }

@@ -15,3 +15,4 @@ terraform/stage/terraform.tfstate.backup
 terraform/prod/terraform.tfvars
 terraform/prod/terraform.tfstate
 terraform/prod/terraform.tfstate.backup
+*.retry
