@@ -1,0 +1,11 @@
+---
+- name: start reddit.service
+  service:
+    name: reddit.service
+    state: started
+    enabled: yes
+
+- name: restart reddit.service
+  service:
+    name: reddit.service
+    state: restarted

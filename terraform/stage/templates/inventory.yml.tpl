@@ -9,3 +9,11 @@ all:
 
     db:
       ansible_host: ${db}
+
+app:
+  hosts:
+    app:
+
+db:
+  hosts:
+    db:
