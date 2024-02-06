@@ -14,9 +14,9 @@
         state: present
         chdir: /home/ubuntu/reddit
 
-    - name: Env
-      shell: sudo systemctl set-environment DATABASE_URL="{{ db_ip }}"
-      notify: restart reddit.service
+    # - name: Env
+    #   shell: sudo systemctl set-environment DATABASE_URL="{{ db_ip }}"
+    #   notify: restart reddit.service
 
   handlers:
     - name: restart reddit.service
