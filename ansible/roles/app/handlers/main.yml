@@ -3,7 +3,7 @@
   service:
     name: reddit.service
     state: started
-    enabled: yes
+    enabled: true
 
 - name: restart reddit.service
   service:
