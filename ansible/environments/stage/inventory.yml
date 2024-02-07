@@ -1,0 +1,19 @@
+---
+all:
+  vars:
+    db_ip: 84.201.174.252
+
+  hosts:
+    app:
+      ansible_host: 158.160.58.88
+
+    db:
+      ansible_host: 84.201.174.252
+
+app:
+  hosts:
+    app:
+
+db:
+  hosts:
+    db:
